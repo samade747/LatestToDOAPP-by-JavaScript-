@@ -13,6 +13,14 @@ body{
 }
 
 
+.ulmain{
+    border: 1px solid red;
+    width: 40rem;
+    max-height: 10rem;
+    min-height: 8rem;
+    overflow: scroll;
+}
+
 .box{
     
 
