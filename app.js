@@ -1,6 +1,13 @@
 var getul = document.getElementById('ul');
 var clearallitems = document.getElementById('clearitems')
 
+var clibutton = document.createElement('button');
+clibutton.className = 'btn btn-danger';
+clibutton.appendChild(document.createTextNode('Clear Items'));
+clibutton.addEventListener('click', deleteall);
+clearallitems.appendChild(clibutton);
+
+
 function additem(){
     var ca = document.getElementById('textinput');
     var li = document.createElement('li');
@@ -21,12 +28,14 @@ function additem(){
     deletebtn.setAttribute( 'class', 'btn btn-danger aaa')
     deletebtn.setAttribute('onclick', 'del(this)');
     editbtn.setAttribute('class', 'btn btn-info aaa')
-    var clibutton = document.createElement('Button')
-    var clearallitemstext = document.createTextNode('clear items')
-    clearallitems.appendChild(clearallitemstext);
+
+    if(!document.getElementById('clearButton')){
+    // var clibutton = document.createElement('Button')
+    // var clearallitemstext = document.createTextNode('clear items')
+    // clearallitems.appendChild(clearallitemstext);
     clearallitems.setAttribute('onclick', 'deleteall()' );    
     clearallitems.append(clibutton);
-
+}
 
 }
 
@@ -38,6 +47,7 @@ function additem(){
 function deleteall(){
     getul.innerHTML = ''
     clearallitems.innerHTML = '';
+    clearallitems.display = none;
 }
 
 
