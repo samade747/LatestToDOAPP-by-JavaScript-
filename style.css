@@ -6,6 +6,10 @@
 
 body{
     background-color: rgba(238,244,250,255);
+    height: 100vh;
+    display: flex;    
+    align-items: center;
+    justify-content: center;
 }
 
 
