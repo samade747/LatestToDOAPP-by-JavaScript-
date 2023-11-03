@@ -21,11 +21,12 @@ function additem(){
     deletebtn.setAttribute( 'class', 'btn btn-danger aaa')
     deletebtn.setAttribute('onclick', 'del(this)');
     editbtn.setAttribute('class', 'btn btn-info aaa')
+    var clibutton = document.createElement('Button')
+    var clearallitemstext = document.createTextNode('clear items')
+    clearallitems.appendChild(clearallitemstext);
+    clearallitems.setAttribute('onclick', 'deleteall()' );    
+    clearallitems.append(clibutton);
 
-    var clibutton = clearallitems.createElement('Button')
-    var clearallitemstext = createTextNode('clear items')
-    clibutton.appendChild(clearallitemstext);
-    clearallitems.setAttribute('onclick', 'deleteall()')
 
 }
 
@@ -35,6 +36,17 @@ function additem(){
 
 
 function deleteall(){
-    
     getul.innerHTML = ''
+    clearallitems.innerHTML = '';
+}
+
+
+function del(e){
+    e.parentNode.remove()
+}
+
+
+function editfun(e){
+    var userEdit = prompt('Enter Edit value' ,e.parentNode.firstChild.nodeValue)
+    e.parentNode.firstChild.nodeValue = userEdit;
 }
