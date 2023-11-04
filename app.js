@@ -28,6 +28,8 @@ function additem(){
     deletebtn.setAttribute( 'class', 'btn btn-danger aaa')
     deletebtn.setAttribute('onclick', 'del(this)');
     editbtn.setAttribute('class', 'btn btn-info aaa')
+    li.style.listStyleType = 'none';
+
 
     if(!document.getElementById('clearButton')){
     // var clibutton = document.createElement('Button')
@@ -35,6 +37,7 @@ function additem(){
     // clearallitems.appendChild(clearallitemstext);
     clearallitems.setAttribute('onclick', 'deleteall()' );    
     clearallitems.append(clibutton);
+
 }
 
 }
