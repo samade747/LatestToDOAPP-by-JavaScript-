@@ -6,6 +6,7 @@ clibutton.className = 'btn btn-danger';
 clibutton.appendChild(document.createTextNode('Clear Items'));
 clibutton.addEventListener('click', deleteall);
 clearallitems.appendChild(clibutton);
+var lastAddedItem;
 
 
 function additem(){
@@ -24,6 +25,7 @@ function additem(){
     var editbtntext = document.createTextNode('Edit')
     editbtn.appendChild(editbtntext);
     editbtn.setAttribute('onclick', 'editfun(this)')
+    
     li.appendChild(editbtn)
     deletebtn.setAttribute( 'class', 'btn btn-danger aaa')
     deletebtn.setAttribute('onclick', 'del(this)');
@@ -39,7 +41,7 @@ function additem(){
     clearallitems.append(clibutton);
 
 }
-
+    lastAddedItem = li;
 }
 
 
@@ -55,11 +57,24 @@ function deleteall(){
 
 
 function del(e){
-    e.parentNode.remove()
+    e.parentNode.remove(e)
 }
 
 
 function editfun(e){
-    var userEdit = prompt('Enter Edit value' ,e.parentNode.firstChild.nodeValue)
-    e.parentNode.firstChild.nodeValue = userEdit;
+    var userEdit = e.parentNode.firstChild.nodeValue;
+    document.getElementById('textinput').value = userEdit;
+    e.parentNode.remove();
+    
 }
+
+// function edititem(){
+//     var ca = document.getElementById('textinput');
+//     var li = lastAddedItem;
+//     if(li){
+//         li.firstChild.nodeValue = ca.value;
+//         ca.value = '';
+//     }
+    
+
+// }
