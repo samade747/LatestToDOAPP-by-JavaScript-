@@ -64,7 +64,7 @@ function del(e){
 function editfun(e){
     var userEdit = e.parentNode.firstChild.nodeValue;
     document.getElementById('textinput').value = userEdit;
-    e.parentNode.remove();
+    e.parentNode.remove(e);
     
 }
 
