@@ -7,6 +7,9 @@ clibutton.appendChild(document.createTextNode('Clear Items'));
 clibutton.addEventListener('click', deleteall);
 clearallitems.appendChild(clibutton);
 var lastAddedItem;
+var bodyback = document.getElementById('body1')
+
+
 
 
 function additem(){
@@ -78,3 +81,15 @@ function editfun(e){
     
 
 // }
+
+function themechange(){
+    var body = document.getElementById('body1');
+    var checkbox = document.querySelector('.theme-checkbox');
+
+    if (checkbox.checkeed){
+        body.style.backgroundColor = 'black';
+
+    } else {
+        body.style.backgroundColor =  'rgba(238,244,250,255)';
+    }
+}
