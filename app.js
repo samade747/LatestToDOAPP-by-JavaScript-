@@ -83,13 +83,15 @@ function editfun(e){
 // }
 
 function themechange(){
+    console.log("Function called")
     var body = document.getElementById('body1');
     var checkbox = document.querySelector('.theme-checkbox');
+    console.log("Checkbox checked: " + checkbox.checked);
 
-    if (checkbox.checkeed){
+    if (checkbox.checked){
         body.style.backgroundColor = 'black';
 
     } else {
-        body.style.backgroundColor =  'rgba(238,244,250,255)';
+        body.style.backgroundColor = 'rgba(238,244,250,255)';
     }
 }
