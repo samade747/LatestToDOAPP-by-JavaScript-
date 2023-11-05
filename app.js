@@ -86,12 +86,27 @@ function themechange(){
     console.log("Function called")
     var body = document.getElementById('body1');
     var checkbox = document.querySelector('.theme-checkbox');
-    console.log("Checkbox checked: " + checkbox.checked);
+    
 
     if (checkbox.checked){
         body.style.backgroundColor = 'black';
 
     } else {
         body.style.backgroundColor = 'rgba(238,244,250,255)';
+    }
+}
+
+
+function themechange1(){
+    console.log("Function called")
+    var indoor = document.getElementById('indoor');
+    var checkbox1 = document.getElementById('ind1');
+    console.log("Checkbox checked: " + checkbox1.checked);
+
+    if (checkbox1.checked){
+        indoor.style.backgroundColor = 'black';
+
+    } else {
+        indoor.style.backgroundColor = 'rgba(238,244,250,255)';
     }
 }
