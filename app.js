@@ -12,6 +12,7 @@ var bodyback = document.getElementById('body1')
 
 
 
+
 function additem(){
     var ca = document.getElementById('textinput');
     var li = document.createElement('li');
@@ -68,7 +69,7 @@ function deleteall(){
     getul.innerHTML = ''
     clearallitems.innerHTML = '';
     // clearallitems.display = none;
-    localStorage.clear()
+    // localStorage.clear()
 }
 
 
@@ -123,3 +124,39 @@ function themechange1(){
         indoor.style.backgroundColor = 'rgba(238,244,250,255)';
     }
 }
+
+function loadAndDisplayItems() {
+    var items = JSON.parse(localStorage.getItem('items')) || [];
+    var ul = document.getElementById('ul');
+
+    // Clear existing items in the ul
+    ul.innerHTML = '';
+
+    // Loop through the items and create li elements
+    items.forEach(function (itemText) {
+        var li = document.createElement('li');
+        li.appendChild(document.createTextNode(itemText));
+
+        var deletebtn = document.createElement('button');
+        deletebtn.appendChild(document.createTextNode('del'));
+        deletebtn.setAttribute('onclick', 'del(this.parentNode)');
+        deletebtn.setAttribute('class', 'btn btn-danger aaa');
+        li.appendChild(deletebtn);
+
+        var editbtn = document.createElement('button');
+        editbtn.appendChild(document.createTextNode('Edit'));
+        editbtn.setAttribute('onclick', 'editfun(this)');
+        editbtn.setAttribute('class', 'btn btn-info aaa');
+        li.appendChild(editbtn);
+
+        li.style.listStyleType = 'none';
+        ul.appendChild(li);
+    });
+}
+
+// Call the loadAndDisplayItems function when the page loads
+window.onload = function () {
+    loadAndDisplayItems();
+};
+
+
