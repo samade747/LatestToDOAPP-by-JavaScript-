@@ -18,6 +18,7 @@ function additem(){
     var litext = document.createTextNode(ca.value);
     li.appendChild(litext)
     getul.appendChild(li)
+    savingtoLocalStorage();
     ca.value = ''
     var deletebtn = document.createElement('button');
     var deletebtntext = document.createTextNode('del');
@@ -47,6 +48,15 @@ function additem(){
     lastAddedItem = li;
 }
 
+
+function savingtoLocalStorage(){
+    // Retriving Existing items in our local storage
+    var items = JSON.parse(localStorage.getItem('items')) || [] ;
+    // Now we add new items into array, ab ham new item array mai add krengai
+    items.push(lastAddedItem.innerText.trim());
+    // save the updated array back to local storage
+    localStorage.setItem('items', JSON.stringify(items));
+}
 
 
 
