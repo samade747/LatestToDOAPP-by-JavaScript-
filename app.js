@@ -36,6 +36,7 @@ function additem(){
     editbtn.setAttribute('class', 'btn btn-info aaa')
     li.style.listStyleType = 'none';
 
+    savingtoLocalStorage(li.innerText.trim());
 
     if(!document.getElementById('clearButton')){
     // var clibutton = document.createElement('Button')
@@ -43,17 +44,18 @@ function additem(){
     // clearallitems.appendChild(clearallitemstext);
     clearallitems.setAttribute('onclick', 'deleteall()' );    
     clearallitems.append(clibutton);
+    
 
 }
     lastAddedItem = li;
 }
 
 
-function savingtoLocalStorage(){
+function savingtoLocalStorage(item){
     // Retriving Existing items in our local storage
     var items = JSON.parse(localStorage.getItem('items')) || [] ;
     // Now we add new items into array, ab ham new item array mai add krengai
-    items.push(lastAddedItem.innerText.trim());
+    items.push(item);
     // save the updated array back to local storage
     localStorage.setItem('items', JSON.stringify(items));
 }
@@ -65,7 +67,8 @@ function savingtoLocalStorage(){
 function deleteall(){
     getul.innerHTML = ''
     clearallitems.innerHTML = '';
-    clearallitems.display = none;
+    // clearallitems.display = none;
+    localStorage.clear()
 }
 
 
